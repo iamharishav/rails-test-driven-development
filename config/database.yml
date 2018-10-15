@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  #socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: rails_test_driven_development_development
+
+test:
+  <<: *default
+  database: rails_test_driven_development_test
+  
+production:
+  <<: *default
+  database: rails_test_driven_development_production
+  username: rails_test_driven_development
+  password: <%= ENV['RAILS_TEST_DRIVEN_DEVELOPMENT_DATABASE_PASSWORD'] %>
